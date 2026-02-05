@@ -1,11 +1,13 @@
 /**********************************************************************************
-* [概要] curriculum.a 変数①、②
+* [概要] curriculum.a
 * [詳細] 各型の変数の宣言、初期値の設定、値の代入及び出力
+*        Java基礎問題_1 Q1～Q13
 **********************************************************************************/
 package curriculum.a;
 
 public class Question1 {
 	public static void main(String[] args) {
+		
 	/*Q1:各型の変数の宣言及び初期値の設定*/
 		
 		byte byteNum = 0; // byteNumの初期値を設定
@@ -159,7 +161,7 @@ public class Question1 {
 	/*Q13*/
 		String text = "私はJavaが好きです。Javaは楽しい！";
 		String replaced = text.replace("Java","Python");
-		System.out.println(replaced);
+		System.out.println(replaced);		
 	}
 
 }
