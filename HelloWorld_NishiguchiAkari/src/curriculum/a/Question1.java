@@ -81,7 +81,7 @@ public class Question1 {
 		
 		
 		// a ハロー trueを出力
-		letters = "a" + letters + "ture"; 
+		letters = letter + letters + isBoolean; 
 		System.out.println(letters);
 		
 		
@@ -150,14 +150,8 @@ public class Question1 {
 		
 	/*Q12*/
 		int x = 15;
-		String result1;
-		if (x >= 10) {
-			result1 = "OK";
-		} else {
-			result1 = "NG";
-		}
-		System.out.println(result1);
-		
+		String s = x >= 10 ? "OK" : "NG";
+		System.out.println(s);
 	/*Q13*/
 		String text = "私はJavaが好きです。Javaは楽しい！";
 		String replaced = text.replace("Java","Python");
