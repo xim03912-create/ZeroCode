@@ -149,7 +149,7 @@ public class Question1 {
 		System.out.println(result);
 		
 	/*Q12*/
-		int x = 10;
+		int x = 15;
 		String result1;
 		if (x >= 10) {
 			result1 = "OK";
