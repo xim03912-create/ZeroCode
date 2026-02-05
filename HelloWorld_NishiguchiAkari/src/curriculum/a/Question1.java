@@ -1,6 +1,6 @@
 /**********************************************************************************
-* [概要] curriculum.a 変数① 各型の変数の宣言及び初期値の設定の処理
-* [詳細] 各型の変数の宣言及び初期値の設定をした後、して位置を代入する。
+* [概要] curriculum.a 変数①、②
+* [詳細] 各型の変数の宣言、初期値の設定、値の代入及び出力
 **********************************************************************************/
 package curriculum.a;
 
@@ -14,7 +14,7 @@ public class Question1 {
 		short shortNum = 0; // shortNumの初期値を設定
 		System.out.println("初期値: " + shortNum);
 		
-		int intNum = 0; // intNumの初期値を設定
+        int intNum = 0; // intNumの初期値を設定
 		System.out.println("初期値: " + intNum);
 		
 		long longNum = 0; // longNumの初期値を設定
@@ -71,29 +71,37 @@ public class Question1 {
 		longNum = longNum + intNum + shortNum + byteNum;
 		System.out.println(longNum);
 		
+		
 		// 20を出力
 		doubleNum = doubleNum + floatNum;
-		System.out.println(doubleNum);
+		int intNum1 = (int)doubleNum;
+		System.out.println(intNum1);
+		
 		
 		// a ハロー trueを出力
 		letters = "a" + letters + "ture"; 
 		System.out.println(letters);
 		
+		
 		// 数字を全て足して出力	
 		longNum = 10000; /* 変数の初期化 */	
 		doubleNum = 10.5; /* 変数の初期化 */	
 		
-		doubleNum = doubleNum + floatNum +longNum + intNum + shortNum + byteNum;
-		System.out.println(doubleNum);
+		doubleNum = (doubleNum + floatNum +longNum + intNum + shortNum + byteNum);
+		int intNum2 = (int)doubleNum;
+		System.out.println(intNum2);
+		
 		
 		// 小数点以外の数字を全てかけて出力
 		longNum = longNum * intNum * shortNum * byteNum;
 		System.out.println(longNum);
 		
+		
 		// 10.5割る100をして出力
 		doubleNum = 10.5; /* 変数の初期化 */
 		doubleNum = doubleNum / 100;
 		System.out.println(doubleNum);
+		
 		
 		// 10引く100をして出力
 		byteNum = (byte) (byteNum - 100); //強制型変換
@@ -116,6 +124,42 @@ public class Question1 {
 		int score = 80;
 		score = score + 20;
 		System.out.println( "最終スコア:" + score);
+		
+	/*Q8*/
+		double price = 99.99;
+		int price1 = (int) price;
+		System.out.println( "整数価格:" + price1);
+		
+    /*Q9*/
+		String numStr = "123";
+		int numInt = Integer.parseInt(numStr);
+		System.out.println( "変換後の値:" + ( numInt + 10 ) );
+		
+	/*Q10*/
+		int num = 50;
+		String str = String.valueOf(num);
+		System.out.println( "得点:" + str + "点");
+		
+	/*Q11*/
+		int a = 10;
+		int b = 20;
+		boolean result = a < b;
+		System.out.println(result);
+		
+	/*Q12*/
+		int x = 10;
+		String result1;
+		if (x >= 10) {
+			result1 = "OK";
+		} else {
+			result1 = "NG";
+		}
+		System.out.println(result1);
+		
+	/*Q13*/
+		String text = "私はJavaが好きです。Javaは楽しい！";
+		String replaced = text.replace("Java","Python");
+		System.out.println(replaced);
 	}
 
 }
