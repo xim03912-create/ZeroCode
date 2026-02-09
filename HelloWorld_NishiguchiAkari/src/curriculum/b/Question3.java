@@ -121,21 +121,21 @@ public class Question3 {
 	/*Q12*/
 		
 		Scanner sc = new Scanner(System.in).useDelimiter("、"); // 文字のScannerの作成
-		sc.useDelimiter("、");
+		sc.useDelimiter("、"); // 区切りで指定
 		
 		System.out.println("いずれかの製品を入力⇒");
 		
-		String str = sc.nextLine();
+		String str = sc.nextLine(); // コンソール入力
 		
-		String products[] = {str};
+		String products[] = {str}; // 入力値の取得
 		
 		int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11};
 		
 		for (int n = 0; n < products.length; n++) {
 			String product = products[n];
 			
-			Random rand = new Random();
-			int number = rand.nextInt(11);
+			Random rand = new Random(); 
+			int number = rand.nextInt(11); //ランダムな値の指定
 			
 			String category = "";
 			switch (product) {
@@ -161,6 +161,12 @@ public class Question3 {
 			  break;
 			  
 			}
+			
+			// 複数の単語を入力できない、出力が正しくない
+			// 区切りの設定ができない
+			// 条件演算子はどこで使うのか
+			// 合計値の指定
+			// 入力回数が一回限り
 			
 					
 		}
