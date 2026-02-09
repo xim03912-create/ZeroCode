@@ -1,5 +1,8 @@
 package curriculum.b;
 
+
+import java.util.Scanner;
+
 public class Question2 {
 
 	public static void main(String[] args) {
@@ -51,13 +54,17 @@ public class Question2 {
 		int max3 = Math.max(x, Math.max(y, z));
 		System.out.println(max3);
 		
+		
 	/*Q5*/
+		Scanner s = new Scanner(System.in); // 数字のScannerの作成
 		
-		System.out.println("【いずれかの値を入力】\n ⇒");
-		@SuppressWarnings("resource")
-		int num = new java.util.Scanner(System.in).nextInt();
 		
-		if(num > 0) {
+		System.out.println("いずれかの値を入力⇒");
+		
+		int num = s.nextInt();
+		
+		
+		if (num > 0) {
 			
 			System.out.println("正の数です");
 			
@@ -65,19 +72,20 @@ public class Question2 {
 			
 			System.out.println("0です");
 			
-		}else{
+		}else {
 			
 			System.out.println("負の数です");
 			
 		}
+	
 		
 	/*Q6*/
 		
-		System.out.println("【いずれかの値を入力】\n ⇒");
-		@SuppressWarnings("resource")
-		int value = new java.util.Scanner(System.in).nextInt();
+		System.out.println("いずれかの値を入力⇒");
 		
-		if(value % 2 == 0) {
+		int value = s.nextInt();
+		
+		if (value % 2 == 0) {
 			
 			System.out.println("偶数です");
 			
@@ -89,19 +97,19 @@ public class Question2 {
 		
 	/*Q7*/
 		
-		System.out.println("0～100の数字を入力 \n ⇒");
-		@SuppressWarnings("resource")
-		int score1 = new java.util.Scanner(System.in).nextInt();
+		System.out.println("0～100の数値を入力⇒");
 		
-		if(score1 >= 90) {
+		int scr = s.nextInt();
+		
+		if (scr >= 90) {
 			
 			System.out.println("優");
 			
-		}else if(score1 >= 70){
+		}else if(scr >= 70){
 			
 			System.out.println("良");
 			
-		}else if(score1 >= 50) {
+		}else if(scr >= 50) {
 			
 			System.out.println("可");
 			
@@ -112,16 +120,95 @@ public class Question2 {
 		}
 		
 	/*Q8*/
+		Scanner scanner = new Scanner(System.in); // 文字のScannerの作成
 		
-		System.out.println("nullまたは(\"\")を入力 \n ⇒");
-		@SuppressWarnings("resource")
-		String str = new java.util.Scanner(System.in).nextLine();
 		
-		if(str.equals("null") || str.equals("")) {
+		System.out.println("いずれかの文字を入力⇒");
+		
+		String str = scanner.nextLine();
+		
+		if (str == null || str.isEmpty()) {
 			
 			System.out.println("入力が無効です");
 			
+		}else {
+			
+			System.out.println("入力された文字: " + str);
+			
 		}
-	}
+		
+	/*Q9*/
+		
+		System.out.println("1～7のいずれかの値を入力⇒");
+		
+		int day = s.nextInt();
+		
+		switch (day) {
+		 
+		 case 1:
+			System.out.println("月曜日");
+			break;
+			
+		 case 2:
+			System.out.println("火曜日");
+			break;
+			
+		 case 3:
+			System.out.println("水曜日");
+			break;
+				
+		 case 4:
+			System.out.println("木曜日");
+			break;
+			
+		 case 5:
+			System.out.println("金曜日");
+			break;
+				
+		 case 6:
+			System.out.println("土曜日");
+			break;
+			
+		 case 7:
+			System.out.println("日曜日");
+			break;
+			
+		 default:
+			System.out.println("無効な入力です");
+			
+		}
+		
+	/*Q10*/
+		
+		System.out.println("1～12のいずれかの値を入力⇒");
+		
+		int month = s.nextInt();
+		
+		switch (month) {
+		
+		 case 12,1,2:
+			System.out.println("冬");
+		    break;
+		    
+		 case 3,4,5:
+			System.out.println("春");
+		    break;
+		    
+		 case 6,7,8:
+			System.out.println("夏");
+		    break;
+			    
+		 case 9,10,11:
+			System.out.println("秋");
+		    break; 
+			   
+		 default:
+			 System.out.println("無効な月です");
+			 
+		}
+			
+		
+	}//---------------------------------------------------------------
+	
 
 }
