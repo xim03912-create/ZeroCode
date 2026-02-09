@@ -129,9 +129,9 @@ public class Question3 {
 		
 		String products[] = {str}; // 入力値の取得
 		
-		int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11};
+		int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11}; // 拡張for文
 		
-		for (int n = 0; n < products.length; n++) {
+		for (int n = 0; n < products.length; n++) { // 繰り返し処理
 			String product = products[n];
 			
 			Random rand = new Random(); 
