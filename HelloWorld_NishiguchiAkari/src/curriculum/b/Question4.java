@@ -31,7 +31,7 @@ public class Question4 {
 		
 		for (int i = numS.length - 1; i >= 0; i-- ) {
 			System.out.println(numS[i]);
-		}// なぜlengthがいるの？
+		}
 		
 		
 	/*Q3*/
