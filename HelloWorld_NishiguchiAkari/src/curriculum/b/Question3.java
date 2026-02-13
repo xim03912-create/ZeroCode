@@ -1,6 +1,5 @@
 package curriculum.b;
 
-import java.io.StringReader;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -177,7 +176,7 @@ public class Question3 {
 		
 		String[] proDct = input.split("、"); //※
 		
-		Scanner sc = new Scanner(new StringReader(input)); //文字列（固定データ）から読み込む
+		input = scanner.next();
 		
 		Random rand = new Random();
 		
