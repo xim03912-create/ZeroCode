@@ -15,6 +15,7 @@ public class Question4 {
 		
 		
 	/*Q1*/
+		System.out.println("*【Q1】");
 		
 		int[] numbers = {1,2,3,4,5,}; 
 		
@@ -24,6 +25,7 @@ public class Question4 {
 
 		
     /*Q2*/
+		System.out.println("*【Q2】");
 		
 		int[] numS = {10,20,30,40,50};
 		
@@ -33,6 +35,7 @@ public class Question4 {
 		
 		
 	/*Q3*/
+		System.out.println("*【Q3】");
 		
 		int[] odd = {3,5,7,9,11};
 		
@@ -47,6 +50,7 @@ public class Question4 {
 		
 		
 	/*Q4*/
+		System.out.println("*【Q4】");
 		
 		int[] mix = {12,7,9,21,5,18};
 		
@@ -69,19 +73,20 @@ public class Question4 {
 		
 		
 	/*Q5*/
+		System.out.println("*【Q5】");
 		
 		int[] num = {1,2,3,4,5};
 		
 		for (int z = 0; z < num.length; z++) {
 			num[z] = num[z] * 2;
 		}
-		System.out.println("【2倍した数】" );
 		
 		for (int n : num) {
 			System.out.println(n);
 		}
 		
 	/*Q6*/
+		System.out.println("*【Q6】");
 		
 		int[] rans = {4,7,10,15,20};
 		
@@ -89,7 +94,7 @@ public class Question4 {
 		
 		int input = scanner.nextInt();
 		
-		boolean exists = Arrays.stream(numbers).anyMatch(n -> n == input);
+		boolean exists = Arrays.stream(rans).anyMatch(n -> n == input);
 		
 		if (exists) {
 			System.out.println(input + "は配列に含まれています");
@@ -98,8 +103,98 @@ public class Question4 {
         }
 		
 	/*Q7*/
+		System.out.println("*【Q7】");
 		
+	    int[][] array = {{1,2},{3,4},{5,6}};
 	    
+	    for (int A = 0; A < array.length; A++) {
+	    	
+	    	for (int B = 0; B < array[A].length; B++) {
+	    		System.out.println(array[A][B] + "");
+	    	}
+	    	
+	    	System.out.println(); 
+	     }
+	    
+	/*Q8*/
+	    System.out.println("*【Q8】");
+	    
+	    int[][] array1 = {
+	    		
+	    		{10,20,30},
+	    		{40,50,60},
+	    		{70,80,90}
+	    		
+	    };
+	    
+	    int sumS = 0;
+	    
+	    for (int[] row : array1) {
+	    	
+	    	for (int value : row) {
+	    		
+	    		sumS += value;
+	    	}
+	    }
+	    
+	    System.out.println("合計値：" + sumS);
+	    
+	    
+	 /*Q9*/
+	    System.out.println("*【Q9】");
+	    
+	    int[][] matrix = {
+	    		
+	    		{12,15,8},
+	    		{6,19,25},
+	    		{30,2,10}
+	    		
+	    };
+	    
+	    int max = matrix[0][0];
+	    int min = matrix[0][0];
+	    
+	    for(int[] row : matrix) {
+	    	for (int value : row) {
+	    		
+	    		if (value > max) {
+	    			max = value;
+	    		}
+	    		
+	    		if (value < min) {
+	    			min = value;
+	    			
+	    		}
+	    	}
+	    }
+	    
+	    System.out.println("最大値：" + max);
+		System.out.println("最小値：" + min);
+	    
+		
+	/*Q10*/
+		System.out.println("*【Q10】");
+		
+		int[][][] all = {
+				
+				{{1,2},{3,4}},
+				{{5,6},{7,8}}
+				
+		};
+		
+		for(int[][] xx : all) {
+			
+		
+			for(int[] yy : xx) {
+				
+				for(int zz : yy) {
+					System.out.print(zz + " ");
+				}
+				System.out.println();
+			}
+			System.out.println();
+		}
+		
 	}//--------------------------------------------------
 
 }//---------------------------------------------------------------------
