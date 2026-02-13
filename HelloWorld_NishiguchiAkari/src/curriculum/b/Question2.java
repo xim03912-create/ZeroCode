@@ -7,6 +7,8 @@ public class Question2 {
 
 	public static void main(String[] args) {
     
+		Scanner s = new Scanner(System.in); //
+		
 	/*Q1*/
 		int score = 75;
 		
@@ -56,8 +58,6 @@ public class Question2 {
 		
 		
 	/*Q5*/
-		Scanner s = new Scanner(System.in); // 数字のScannerの作成
-		
 		
 		System.out.println("いずれかの値を入力⇒");
 		

@@ -9,6 +9,7 @@ public class Question3 {
 		// TODO 自動生成されたメソッド・スタブ
 
 		
+		
 	/*Q1*/
 		for (int i = 1; i <= 10; i++) {
 			
@@ -37,10 +38,9 @@ public class Question3 {
 		for (int num = 1; num <= 100; num++) {
 			
 			sum += num;
-			
-			System.out.println("合計：" + sum);
-			
 		}
+		
+		System.out.println("合計：" + sum);
 		
 	/*Q5*/
 		int lines = 5;
@@ -63,9 +63,9 @@ public class Question3 {
 		
 	/*Q7*/
 		int e = 2;
-		while (e % 2 == 0 || e <= 20) {
+		while (e <= 20) {
 			System.out.println("偶数：" + e);
-			e++;
+			e += 2;
 		}
 	
 	/*Q8*/
@@ -105,19 +105,23 @@ public class Question3 {
 		}
 		
 		
-		
-	/*Q11*/
+    /*Q11*/
 		
 		for (int y = 1; y <= 9; y++) {
 			
 			for (int z = 1; z <= 9; z++) {
 				
-				System.out.print( "0" + y + "*" + "0" + z + "=" + "0" + (y*z) + "||" );
+				int seki = y*z;
+				
+				String 九九 = String.format("%02d * %02d = %02d ||" , y , z , seki );
+
+			
+			System.out.print(九九);
 			}
 			
 			System.out.println();
-		}
-		
+         }
+
 	/*Q12*/
 		
 		Scanner sc = new Scanner(System.in).useDelimiter("、"); // 文字のScannerの作成
