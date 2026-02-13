@@ -54,22 +54,22 @@ public class Question4 {
 		
 		int[] mix = {12,7,9,21,5,18};
 		
-		int Max = mix[0];
-		int Min = mix[0];
+		int max = mix[0];
+		int min = mix[0];
 		
 		for(int a = 1; a < mix.length; a++) {
 			
-			if(Max < mix[a]) {
-				Max = mix[a];
+			if(max < mix[a]) {
+				max = mix[a];
 			}
 			
-			if(Min > mix[a]) {
-				Min = mix[a];
+			if(min > mix[a]) {
+				min = mix[a];
 			}
 		}
 		
-		System.out.println("最大値：" + Max);
-		System.out.println("最小値：" + Min);
+		System.out.println("最大値：" + max);
+		System.out.println("最小値：" + min);
 		
 		
 	/*Q5*/
@@ -77,13 +77,11 @@ public class Question4 {
 		
 		int[] num = {1,2,3,4,5};
 		
-		for (int z = 0; z < num.length; z++) {
-			num[z] = num[z] * 2;
+		for (int z : num) {
+			
+			System.out.println(z * 2);
 		}
 		
-		for (int n : num) {
-			System.out.println(n);
-		}
 		
 	/*Q6*/
 		System.out.println("*【Q6】");
@@ -151,25 +149,25 @@ public class Question4 {
 	    		
 	    };
 	    
-	    int max = matrix[0][0];
-	    int min = matrix[0][0];
+	    int max1 = matrix[0][0];
+	    int min1 = matrix[0][0];
 	    
 	    for(int[] row : matrix) {
 	    	for (int value : row) {
 	    		
 	    		if (value > max) {
-	    			max = value;
+	    			max1 = value;
 	    		}
 	    		
 	    		if (value < min) {
-	    			min = value;
+	    			min1 = value;
 	    			
 	    		}
 	    	}
 	    }
 	    
-	    System.out.println("最大値：" + max);
-		System.out.println("最小値：" + min);
+	    System.out.println("最大値：" + max1);
+		System.out.println("最小値：" + min1);
 	    
 		
 	/*Q10*/
