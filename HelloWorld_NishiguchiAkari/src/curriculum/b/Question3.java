@@ -130,7 +130,7 @@ public class Question3 {
 		
         String[] products = scanner.next().split("、");
 		
-        scanner.close();
+        
         
 		Random random = new Random();
 		int stock;
@@ -168,7 +168,7 @@ public class Question3 {
 			}
 		}
 		
-		
+		scanner.close();
 		
 	/*Q12*/ //----String inputで商品一覧を指定するやり方---------------------------------------------------------------------------
 		
