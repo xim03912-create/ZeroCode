@@ -176,7 +176,7 @@ public class Question3 {
 		
 		String[] proDct = input.split("、"); //※
 		
-		input = scanner.next();
+		input = scanner.next(); // 入力を待つために記述
 		
 		Random rand = new Random();
 		
