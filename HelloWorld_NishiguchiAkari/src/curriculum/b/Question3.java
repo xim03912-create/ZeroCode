@@ -97,6 +97,7 @@ public class Question3 {
 		
 		while (true) {
 			x = scanner.nextInt();
+			
 			if (x == 0) {
 				System.out.println("終了しました");
 				break;
