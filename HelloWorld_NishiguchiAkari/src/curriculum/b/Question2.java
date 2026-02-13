@@ -183,6 +183,7 @@ public class Question2 {
 		
 		int month = s.nextInt();
 		
+		
 		switch (month) {
 		
 		 case 12,1,2:
@@ -205,7 +206,7 @@ public class Question2 {
 			 System.out.println("無効な月です");
 			 
 		}
-		
+		s.close();
 	}//---------------------------------------------------------------
 	
 
