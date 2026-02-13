@@ -8,6 +8,7 @@ public class Question2 {
 	public static void main(String[] args) {
     
 		Scanner s = new Scanner(System.in); //
+		   
 		
 	/*Q1*/
 		int score = 75;
@@ -120,12 +121,10 @@ public class Question2 {
 		}
 		
 	/*Q8*/
-		Scanner scanner = new Scanner(System.in); // 文字のScannerの作成
-		
 		
 		System.out.println("いずれかの文字を入力⇒");
 		
-		String str = scanner.nextLine();
+		String str = s.next();
 		
 		if (str == null || str.isEmpty()) {
 			

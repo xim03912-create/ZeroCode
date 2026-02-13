@@ -1,5 +1,6 @@
 package curriculum.b;
 
+import java.io.StringReader;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,6 +9,8 @@ public class Question3 {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
+		Scanner scanner = new Scanner(System.in); // Scannerの作成
+		
 		
 		
 	/*Q1*/
@@ -88,7 +91,6 @@ public class Question3 {
 		
 	/*Q10*/
 		
-		Scanner scanner = new Scanner(System.in); // Scannerの作成
 		
 		System.out.println("入力⇒");
 
@@ -124,61 +126,103 @@ public class Question3 {
 
 	/*Q12*/
 		
-		Scanner sc = new Scanner(System.in).useDelimiter("、"); // 文字のScannerの作成
-		sc.useDelimiter("、"); // 区切りで指定
-		
 		System.out.println("いずれかの製品を入力⇒");
 		
-		String str = sc.nextLine(); // コンソール入力
+        String[] products = scanner.next().split("、");
 		
-		String products[] = {str}; // 入力値の取得
+        
+		Random random = new Random();
+		int stock;
+		int tvstock = random.nextInt(12); // 0～11までの12個の数字
+		int disstock = 11 - tvstock;
 		
-		int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11}; // 拡張for文
-		
-		for (int n = 0; n < products.length; n++) { // 繰り返し処理
-			String product = products[n];
+		for (String product : products) {
+			stock = random.nextInt(12);
 			
-			Random rand = new Random(); 
-			int number = rand.nextInt(11); //ランダムな値の指定
-			
-			String category = "";
 			switch (product) {
+			// stock
+			case "パソコン":
+			case "冷蔵庫":
+			case "扇風機":
+			case "洗濯機":
+			case "加湿器":
+				
+		    System.out.println(product + "残りの台数は" + stock + "台です");
+		    break;
+		    
+		    //tvstock
+			case "テレビ":
+			case "ディスプレイ":
+				
+			System.out.println(product.equals("テレビ") ?"テレビの残り台数は" + tvstock + "台です":
+					"ディスプレイの残り台数は" + disstock + "台です");
+			break;
 			
-			  case "パソコン":
-			  
-			  case "冷蔵庫":
-			  
-			  case "扇風機":
-			  
-			  case "洗濯機":
-			 
-			  case "加湿器":
-			  
-			  case "テレビ":
-			  case "ディスプレイ":
-				  category = "tv";
-			  System.out.println(str + "の残りの台数は" + number + "です");
-			  break;
-				  
-			  default:
-			  System.out.println("『" + str + "』" + "は指定の商品ではありません");  
-			  break;
-			  
+			//disstock
+			default:
+				System.out.println("『" + product + "』" + "は指定の商品ではありません");
+				break;
+				
+				
 			}
+		}
+		
+		
+		
+	/*Q12*/ //----String inputで商品一覧を指定するやり方---------------------------------------------------------------------------
+		
+		System.out.println("いずれかの商品を入力⇒");
+		
+		String input = "パソコン、冷蔵庫、扇風機、洗濯機、加湿器、テレビ、ディスプレイ、その他商品";
+		
+		String[] proDct = input.split("、"); //※
+		
+		Scanner sc = new Scanner(new StringReader(input)); //文字列（固定データ）から読み込む
+		
+		Random rand = new Random();
+		
+		int stK;
+		int tv = rand.nextInt(12);
+		int dis = 11 - tv;
+		
+		for (String proD : proDct) { //(要素と同じ型の定義：※)
+			stK = rand.nextInt(12);
 			
-			// 入力回数が一回限り、複数の単語を入力できない、出力が正しくない
-			// 区切り（、）の設定ができない
-			// 条件演算子はどこで使うのか
-			// 合計値の指定
+			switch (proD) {
 			
+			case "パソコン":
+			case "冷蔵庫":
+			case "扇風機":
+			case "洗濯機":
+			case "加湿器":
+				
+		    System.out.println(proD + "残りの台数は" + stK + "台です");
+		    
+		    break;
 			
+			case "テレビ":
+			case "ディスプレイ":
+				
+			System.out.println(proD.equals("テレビ") ?"テレビの残り台数は" + tv + "台です":
+					"ディスプレイの残り台数は" + dis + "台です");
+			
+			break;
+			
+			default:
+				System.out.println("『" + proD + "』" + "は指定の商品ではありません");
+				break;
+		}
 					
 		}
+
+	    // breakが効かず入力した要素以外も全部出てきてしまう
+		
+	}//--------------------------------------------------------
 		
 		
 	}//------------------------------------------------------------
 
 
-}
+
 
 
