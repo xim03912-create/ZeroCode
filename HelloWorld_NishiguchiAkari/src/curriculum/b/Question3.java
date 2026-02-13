@@ -12,14 +12,14 @@ public class Question3 {
 		
 		
 		
-	/*Q1*/
+	/*Q1*/System.out.println("*【Q1】");
 		for (int i = 1; i <= 10; i++) {
 			
 			System.out.println("カウント" + i);
 			
 		}
 		
-	/*Q2*/
+	/*Q2*/System.out.println("*【Q2】");
 		for (int even = 2; even <= 20; even++) {
 			
 			if(even % 2 == 0) {
@@ -29,13 +29,13 @@ public class Question3 {
 			}
 		}
 		
-	/*Q3*/
+	/*Q3*/System.out.println("*【Q3】");
 		for (int down = 10; down >= 1; down--) {
 			
 			System.out.println("カウント" + down);
 		}
 		
-	/*Q4*/
+	/*Q4*/System.out.println("*【Q4】");
 		int sum = 0;
 		for (int num = 1; num <= 100; num++) {
 			
@@ -44,7 +44,7 @@ public class Question3 {
 		
 		System.out.println("合計：" + sum);
 		
-	/*Q5*/
+	/*Q5*/System.out.println("*【Q5】");
 		int lines = 5;
 		
 		for (int a = 1; a <= lines; a++) {
@@ -56,28 +56,28 @@ public class Question3 {
 			System.out.println();
 		}
 		
-	/*Q6*/
+	/*Q6*/System.out.println("*【Q6】");
 		int count = 1;
 		while (count <= 10) {
 			System.out.println("カウント" + count);
 			count++;
 		}
 		
-	/*Q7*/
+	/*Q7*/System.out.println("*【Q7】");
 		int e = 2;
 		while (e <= 20) {
 			System.out.println("偶数：" + e);
 			e += 2;
 		}
 	
-	/*Q8*/
+	/*Q8*/System.out.println("*【Q8】");
 		int d = 10;
 		while (d >= 1) {
 			System.out.println("カウント" + d);
 			d--;
 		}
 		
-	/*Q9*/
+	/*Q9*/System.out.println("*【Q9】");
 		int suM = 0;
 		int nuM = 1;
 		
@@ -88,8 +88,8 @@ public class Question3 {
 		
 		System.out.println("合計値：" + suM);
 		
-	/*Q10*/
 		
+	/*Q10*/System.out.println("*【Q10】");
 		
 		System.out.println("入力⇒");
 
@@ -107,7 +107,7 @@ public class Question3 {
 		}
 		
 		
-    /*Q11*/
+    /*Q11*/System.out.println("*【Q11】");
 		
 		for (int y = 1; y <= 9; y++) {
 			
@@ -124,12 +124,13 @@ public class Question3 {
 			System.out.println();
          }
 
-	/*Q12*/
+	/*Q12*/System.out.println("*【Q12】");
 		
 		System.out.println("いずれかの製品を入力⇒");
 		
         String[] products = scanner.next().split("、");
 		
+        scanner.close();
         
 		Random random = new Random();
 		int stock;
@@ -171,7 +172,7 @@ public class Question3 {
 		
 	/*Q12*/ //----String inputで商品一覧を指定するやり方---------------------------------------------------------------------------
 		
-		System.out.println("いずれかの商品を入力⇒");
+		/*System.out.println("いずれかの商品を入力⇒");
 		
 		String input = "パソコン、冷蔵庫、扇風機、洗濯機、加湿器、テレビ、ディスプレイ、その他商品";
 		
@@ -215,7 +216,7 @@ public class Question3 {
 				break;
 		}
 					
-		}
+		}*/
 
 	    // breakが効かず入力した要素以外も全部出てきてしまう
 		
