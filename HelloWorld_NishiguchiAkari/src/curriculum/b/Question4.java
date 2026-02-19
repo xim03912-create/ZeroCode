@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class Question4 {
 
-	private static final String N = null;
-
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		
@@ -155,11 +153,11 @@ public class Question4 {
 	    for(int[] row : matrix) {
 	    	for (int value : row) {
 	    		
-	    		if (value > max) {
+	    		if (value > max1) {
 	    			max1 = value;
 	    		}
 	    		
-	    		if (value < min) {
+	    		if (value < min1) {
 	    			min1 = value;
 	    			
 	    		}
