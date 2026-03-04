@@ -2,7 +2,7 @@ package curriculum.i;
 
 public abstract  class Employee {
 
-	public String name; // publicにするかgetterを作る
+	public String name; 
     public Employee(String name) { this.name = name; }
     public abstract double calculateDailyWage();
     
