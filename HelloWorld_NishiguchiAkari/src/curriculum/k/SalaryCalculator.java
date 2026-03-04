@@ -40,42 +40,62 @@ class Employee { //Employee に型情報を持たせるのではなく、ポリ�
 		
 		int calculateSalary();
 
+		String getType();
+
 		String getName();
 	}
 
 	abstract class Employee implements Payable { //抽象クラス
+		// フィールド
 		private String name;
 		private String type;
 		private int hours;
 	}
 	
+	
+	
     // FullTimeEmployee
 	class FullTimeEmployee implements Payable { // 計算ルールを変えたい場合 S
 		private String name;
+		private String type;
 		private int hours;
 		
-		public FullTimeEmployee(String name, int hours) {
+		//コンストラクタ
+		public FullTimeEmployee(String type, String name, int hours) {
 			this.name =name;
+			this.type = type;
 			this.hours = hours;
 		}
+		
+		@Override
+	    public String getType() {
+	        return type;
+	    }
 		@Override
 		public String getName() {
 			return name;
 		}
 		@Override
-	    public int calculateSalary() {
+	    public int calculateSalary() { //メソッド
 	        return hours * 1200; 
 	    }
 	}
 	
 	// ContractEmployee
 	class ContractEmployee implements Payable { // 計算ルールを変えたい場合 S
-	    private final String name;
-	    private final int hours;
+	    private String name;
+	    private String type;
+	    private int hours;
 
-	    public ContractEmployee(String name, int hours) {
+	    public ContractEmployee(String type, String name,  int hours) {
 	        this.name = name;
+	        this.type = type;
 	        this.hours = hours;
+	    }
+	    
+	    @Override
+	    public String getType() {
+	        return type;
 	    }
 	    
 	    @Override
@@ -84,18 +104,26 @@ class Employee { //Employee に型情報を持たせるのではなく、ポリ�
 	    }
 
 	    @Override
-	    public int calculateSalary() {
+	    public int calculateSalary() { //メソッド
 	        return hours * 1000;
 	    }
 	}
 	
 	class PartTime implements Payable { // 新たな社員タイプを追加
-	    private final String name;
-	    private final int hours;
+	    private String name;
+	    private String type;
+	    private int hours;
+		
 
-	    public PartTime(String name, int hours) {
+	    public PartTime(String type, String name,  int hours) {
 	        this.name = name;
+	        this.type = type;
 	        this.hours = hours;
+	    }
+	    
+	    @Override
+	    public String getType() {
+	        return type;
 	    }
 	    
 	    @Override
@@ -104,7 +132,7 @@ class Employee { //Employee に型情報を持たせるのではなく、ポリ�
 	    }
 
 	    @Override
-	    public int calculateSalary() {
+	    public int calculateSalary() { //メソッド
 	        return hours * 1000;
 	    }
 	}
@@ -114,7 +142,7 @@ class Employee { //Employee に型情報を持たせるのではなく、ポリ�
 	class SalaryReporter { //表示形式を変えたい場合
 		public void report(Payable payable) {
 			
-			System.out.println(payable.getName() + "さんの給料は " + payable.calculateSalary() + " 円");
+			System.out.println(payable.getType() + "：" +  payable.getName() + "：" + payable.calculateSalary() + "円");
 			
 		}
 	}
