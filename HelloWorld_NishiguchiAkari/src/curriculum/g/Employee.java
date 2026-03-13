@@ -2,12 +2,12 @@ package curriculum.g;
 
 public class Employee {
 
-	private static String employeed; //employeeId（文字列型）
-	private static String name; //name（文字列型）
+	private String employeeId; //employeeId（文字列型）
+	private String name; //name（文字列型）
 	
 	public void setEmployeeId(String id) {
 		
-		this.employeed = id;
+		this.employeeId = id;
 		
 	}
 	
@@ -19,7 +19,7 @@ public class Employee {
 	
 	
 	public String getEmployeeId() {
-		return employeed;
+		return employeeId;
 	}
 	public String getName() {
 		return name;

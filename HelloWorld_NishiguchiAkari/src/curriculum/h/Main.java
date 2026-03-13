@@ -2,13 +2,13 @@ package curriculum.h;
 
 abstract class Employee {
 
-	protected String employeed;
+	protected String employeeId;
 	protected String name;
 	
 	
 	public Employee(String id, String name) { //コンストラクタ
 		
-		this.employeed = id;
+		this.employeeId = id;
 		this.name = name;
 		
 	}

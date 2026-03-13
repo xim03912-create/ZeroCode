@@ -2,8 +2,8 @@ package curriculum.f;
 
 public class Employee {
 
-	private static String employeeId; // employeeId（文字列型）フィールド
-	private static String name;
+	private  String employeeId; // employeeId（文字列型）フィールド
+	private  String name;
 
 	public Employee(String employeeId , String name) {
 		
