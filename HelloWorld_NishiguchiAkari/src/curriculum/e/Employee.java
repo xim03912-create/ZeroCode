@@ -2,7 +2,7 @@ package curriculum.e;
 
 public class Employee { // 1
 
-	private String name; // 2
+    String name; // 2
 	
 	public Employee(String name) {
 		
