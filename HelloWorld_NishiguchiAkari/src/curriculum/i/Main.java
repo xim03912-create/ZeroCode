@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-abstract class Employee { //基底クラス
+abstract class Employee { //抽象クラス
 	protected String id;
 	protected String name;
 	
@@ -19,7 +19,7 @@ abstract class Employee { //基底クラス
 }//-----------------------------------
 class FullTimeEmployee extends Employee { 
 		
-	    public FullTimeEmployee(String id, String name) {
+	    FullTimeEmployee(String id, String name) {
 		    super(id, name);
 	    }
 	    @Override
@@ -36,7 +36,7 @@ class FullTimeEmployee extends Employee {
 	
 	class ContractEmployee extends Employee {
 		
-		public ContractEmployee(String id, String name) {
+	    ContractEmployee(String id, String name) {
 			super(id, name);
 		}
 		@Override
