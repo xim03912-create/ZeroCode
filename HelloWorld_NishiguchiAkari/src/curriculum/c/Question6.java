@@ -49,7 +49,7 @@ public class Question6 {
 			
 			
 		}
-		
+		s.close();
 	}//-------------------------------
 	
 	
@@ -82,7 +82,9 @@ class Player {
 			System.out.println("0～2の数字を入力してください。");
 			return -1;
 		}
+		
 	}
+	
 }
 
 class CPU {
@@ -92,4 +94,6 @@ class CPU {
 		return random.nextInt(3);
 	}
 	
+	
 }
+
