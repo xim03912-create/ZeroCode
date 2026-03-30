@@ -103,7 +103,7 @@ public class Question7 {
 		System.out.println("先行：" + first.name);
         
         
-        // ターン制バトルを行い、どちらかのHPが0以下になるまで続ける
+        // ターン制バトルを行い
         while (player.hp > 0 && enemy.hp > 0) {
             // 先攻の攻撃
             attack(first, second, pw);
@@ -114,7 +114,7 @@ public class Question7 {
         }
 
         // 決着
-        String winner = (player.hp > 0) ? player.name : enemy.name;
+        String winner = (player.hp > 0) ? player.name : enemy.name; //どちらかのHPが0以下になるまで続ける
         String result = "\n勝者: " + winner ;
         System.out.println(result);
         

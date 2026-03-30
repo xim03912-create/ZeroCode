@@ -1,22 +1,26 @@
 --- バトルログ ---
-あHP:125VSDaemonHP:85
-あ の攻撃！ Daemon に 20 のダメージ！
-【Daemon残りHP: 65】
-Daemon の攻撃！ あ に 12 のダメージ！
-【あ残りHP: 113】
-あ の攻撃！ Daemon に 20 のダメージ！
-【Daemon残りHP: 45】
-Daemon の攻撃！ あ に 12 のダメージ！
-【あ残りHP: 101】
-あ の攻撃！ Daemon に 20 のダメージ！
-【Daemon残りHP: 25】
-Daemon の攻撃！ あ に 12 のダメージ！
-【あ残りHP: 89】
-あ の攻撃！ Daemon に 20 のダメージ！
+aHP:121VSDaemonHP:85
+a の攻撃！ Daemon に 16 のダメージ！
+【Daemon残りHP: 69】
+Daemon の攻撃！ a に 12 のダメージ！
+【a残りHP: 109】
+a の攻撃！ Daemon に 16 のダメージ！
+【Daemon残りHP: 53】
+Daemon の攻撃！ a に 12 のダメージ！
+【a残りHP: 97】
+a の攻撃！ Daemon に 16 のダメージ！
+【Daemon残りHP: 37】
+Daemon の攻撃！ a に 12 のダメージ！
+【a残りHP: 85】
+a の攻撃！ Daemon に 16 のダメージ！
+【Daemon残りHP: 21】
+Daemon の攻撃！ a に 12 のダメージ！
+【a残りHP: 73】
+a の攻撃！ Daemon に 16 のダメージ！
 【Daemon残りHP: 5】
-Daemon の攻撃！ あ に 12 のダメージ！
-【あ残りHP: 77】
-あ の攻撃！ Daemon に 20 のダメージ！
+Daemon の攻撃！ a に 12 のダメージ！
+【a残りHP: 61】
+a の攻撃！ Daemon に 16 のダメージ！
 【Daemon残りHP: 0】
 
-勝者: あ
+勝者: a
