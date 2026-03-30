@@ -75,7 +75,13 @@ class Player {
 	}
 	
 	public int chooseHand() {
-		return s.nextInt();
+		if (s.hasNextInt()) {
+			return s.nextInt();
+		} else {
+			s.next();
+			System.out.println("0～2の数字を入力してください。");
+			return -1;
+		}
 	}
 }
 
