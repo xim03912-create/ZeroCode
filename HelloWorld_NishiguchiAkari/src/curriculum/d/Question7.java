@@ -8,14 +8,14 @@ import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
-class Character { //Character クラス:共通のキャラクター情報（HP, AT, SP）を管理
+class Player { //Character クラス:共通のキャラクター情報（HP, AT, SP）を管理
 
 	String name;
 	int hp;
 	int ap;
 	int sp;
 	
-	public Character (String name, int hp, int ap, int sp) {
+	public Player (String name, int hp, int ap, int sp) {
 		this.name = name;
 		this.hp = hp;
 		this.ap = ap;
@@ -41,7 +41,7 @@ public class Question7 {
 		int ap = ran.nextInt(11) + 10;
 		int sp = ran.nextInt(10 + 1);	
 		
-        Character player = new Character(inputName, hp, ap, sp);
+        Player player = new Player(inputName, hp, ap, sp);
 
         System.out.println("\n---------------------------");
         System.out.println("YOUSTATUS");
@@ -53,7 +53,7 @@ public class Question7 {
         
 // 2 ------------------------------------------------------------------------
          //★loadDaemon メソッドを呼び出して敵を生成
-        Character daemon = loadDaemon("daemon_status.txt");
+        Player daemon = loadDaemon("daemon_status.txt");
         
      // ファイルが読み込めなかった（nullが返った）場合は終了
         if (daemon == null) {
@@ -79,7 +79,7 @@ public class Question7 {
             pw.println(player.name + "HP:" + player.hp + "VS" + daemon.name + "HP:" + daemon.hp );
             
         //先攻決定
-        Character first,second;
+        Player first,second;
         
 		if (player.sp > daemon.sp) { //player
 			
@@ -130,7 +130,7 @@ public class Question7 {
         }
 	
 	// ★Daemon のステータスをテキストファイルから読み込むメソッド
-    public static Character loadDaemon(String filePath) {
+    public static Player loadDaemon(String filePath) {
         try {
             File file = new File(filePath);
             Scanner fileScanner = new Scanner(file);
@@ -140,8 +140,7 @@ public class Question7 {
             int dAp = Integer.parseInt(fileScanner.nextLine());
             int dSp = Integer.parseInt(fileScanner.nextLine());
 
-            fileScanner.close();
-            return new Character(dName, dHp, dAp, dSp);
+            return new Player(dName, dHp, dAp, dSp);
 
         } catch (FileNotFoundException e) {
             System.out.println("\n[エラー] " + filePath + " が見つかりません。");
@@ -153,7 +152,7 @@ public class Question7 {
     }
     
     // 攻撃処理の共通メソッド
-    public static void attack(Character attacker, Character defender, PrintWriter pw) {
+    public static void attack(Player attacker, Player defender, PrintWriter pw) {
         defender.hp -= attacker.ap;
         String log = attacker.name + " の攻撃！ " + defender.name + " に " + attacker.ap + " のダメージ！" + "\n【" + defender.name +"残りHP: " + Math.max(0, defender.hp)  + "】";
         
