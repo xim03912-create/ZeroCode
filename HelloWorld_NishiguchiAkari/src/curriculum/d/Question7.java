@@ -1,140 +1,167 @@
 package curriculum.d;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
-class Player {
-	// インスタンスフィールドを定義
+class Character { //Character クラス:共通のキャラクター情報（HP, AT, SP）を管理
+
 	String name;
 	int hp;
-	int at;
+	int ap;
 	int sp;
 	
-	// コンストラクタを定義しインスタンスフィールドに値をセット
-	public Player (String name, int hp, int at, int sp) {
+	public Character (String name, int hp, int ap, int sp) {
 		this.name = name;
 		this.hp = hp;
-		this.at = at;
+		this.ap = ap;
 		this.sp = sp;
-	}
-
-	public boolean isAlive() {
-		// TODO 自動生成されたメソッド・スタブ
-		return this.hp > 0;
-	}
-	public String getStatus() {
-        return String.format("[%s] HP:%d AT:%d SP:%d", name, hp, at, sp);
     }
 }
 
-class BattleLogger {
-	private List<String> logs = new ArrayList<>();
-	
-	public void log(String commentary) {
-		System.out.println(commentary);//出力担当
-		logs.add(commentary);//記録担当
-	}
-	
-	 public void saveToFile(String fileName) {
-	        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fileName)))) {
-	            for (String line : logs) pw.println(line);
-	            System.out.println("\n--- ログを " + fileName + " に保存しました ---");
-	        } catch (IOException e) {
-	            System.err.println("ログ保存エラー: " + e.getMessage());
-	        }
-	    }
-	 
-}
+
 public class Question7 {
 
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
 
-		BattleLogger logger = new BattleLogger();
-		Random rand = new Random();
+// 1 ------------------------------------------------------------------------
+		Scanner s = new Scanner(System.in); //Playerの名前を入力し
+		Random ran = new Random();//ステータス（HP, AT, SP）をランダム設定
+
+		//名前
+		System.out.println("Playerの名前を入力");
+		String inputName = s.nextLine();
 		
-		List<Player> players = new ArrayList<>();
+		//ステータス
+		int hp = ran.nextInt(51) + 100;
+		int ap = ran.nextInt(11) + 10;
+		int sp = ran.nextInt(10 + 1);	
 		
-		// Playerの名前を入力し、ステータス（HP, AT, SP）をランダム設定
-		players.add(new Player("勇者",rand.nextInt(41) + 80, 20, 12));
-		players.add(new Player("魔法使い",rand.nextInt(41) + 100, 10, 8));
-		players.add(new Player("戦士",rand.nextInt(41) + 60, 50, 5));
-		
-		
-		//Daemonのステータスは事前にテキストファイルから読み込み
-		Player daemon = loadDaemon("daemon_status.txt");
-		if (daemon == null) return;
-		
-		logger.log("=== バトル開始 ===");
-        logger.log("エネミー出現: " + daemon.getStatus());
-		
-		// プレイヤーが順番にDaemonに挑む
-		for (Player player : players) {
-			if(!daemon.isAlive()) 
-			break;
-			
-			logger.log("\n--- " + player.name + " のターン ---");
-            logger.log("Player: " + player.getStatus());
+        Character player = new Character(inputName, hp, ap, sp);
+
+        System.out.println("\n---------------------------");
+        System.out.println("YOUSTATUS");
+        System.out.println("\n名前: " + player.name);
+        System.out.println("HP  : " + player.hp);
+        System.out.println("AP  : " + player.ap);
+        System.out.println("SP  : " + player.sp);
+        System.out.println("\n--------------------------");
+        
+// 2 ------------------------------------------------------------------------
+         //★loadDaemon メソッドを呼び出して敵を生成
+        Character enemy = loadDaemon("daemon_status.txt");
+        
+     // ファイルが読み込めなかった（nullが返った）場合は終了
+        if (enemy == null) {
+            s.close();
+            return;
+        }
+        
+            System.out.println("DAEMONSTATUS");
+            System.out.println("\n名前: " + enemy.name);
+            System.out.println("HP  : " + enemy.hp);
+            System.out.println("AP  : " + enemy.ap);
+            System.out.println("SP  : " + enemy.sp);
+            System.out.println("\n--------------------------");
+
+
+        
+// 3 ------------------------------------------------------------------------
+        
+        System.out.println("【BATTLE START】");
+        
+        try (PrintWriter pw = new PrintWriter(new FileWriter("battle_log.txt"))) { //バトルの結果をテキストファイルに出力
+            pw.println("--- バトルログ ---");
+            pw.println(player.name + "HP:" + player.hp + "VS" + enemy.name + "HP:" + enemy.hp );
             
-            runBattle(player, daemon, logger, rand);
+        //先攻決定
+        Character first,second;
+        
+		if (player.sp > enemy.sp) { //player
+			
+			first = player; second = enemy;
+			
+        } else if (enemy.sp > player.sp) { //daemon
+        	
+        	first = enemy; second = player;
+        	
+        } else {
+        	
+        	if (ran.nextBoolean()) { //player=daemon
+        		first = player;
+        		second = enemy;
+        	}else {
+        		first = enemy; second = player;
+        	}
+        	
+        }
+		
+		System.out.println("先行：" + first.name);
+        
+        
+        // ターン制バトルを行い、どちらかのHPが0以下になるまで続ける
+        while (player.hp > 0 && enemy.hp > 0) {
+            // 先攻の攻撃
+            attack(first, second, pw);
+            if (second.hp <= 0) break;
+
+            // 後攻の攻撃
+            attack(second, first, pw);
+        }
+
+        // 決着
+        String winner = (player.hp > 0) ? player.name : enemy.name;
+        String result = "\n勝者: " + winner ;
+        System.out.println(result);
+        
+        pw.println(result); //結果を battle_log.txt に記録
+        
+        } catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+        	System.out.println("ログの保存に失敗しました。");
 		}
-		// 最終結果
-        logger.log("\n=== 全戦闘終了 ===");
-        logger.log(daemon.isAlive() ? "Daemon の勝利..." : "Playerチーム の勝利！");
-
-        logger.saveToFile("battle_log.txt");
-	}
-	
-	//1対1のバトルロジック
-	private static void runBattle(Player player, Player daemon, BattleLogger logger, Random rand) {
-		// TODO 自動生成されたメソッド・スタブ
-		// 先攻決定
-        Player first = player, second = daemon;
-        if (daemon.sp > player.sp || (player.sp == daemon.sp && rand.nextBoolean())) {
-            first = daemon; second = player;
+        
+        s.close();
+    
         }
-        logger.log("先攻: " + first.name);
+	
+	// ★Daemon のステータスをテキストファイルから読み込むメソッド
+    public static Character loadDaemon(String filePath) {
+        try {
+            File file = new File(filePath);
+            Scanner fileScanner = new Scanner(file);
 
-        while (player.isAlive() && daemon.isAlive()) {
-            executeAttack(first, second, logger);
-            if (second.isAlive()) {
-                executeAttack(second, first, logger);
-            }
+            String dName = fileScanner.nextLine();
+            int dHp = Integer.parseInt(fileScanner.nextLine());
+            int dAp = Integer.parseInt(fileScanner.nextLine());
+            int dSp = Integer.parseInt(fileScanner.nextLine());
+
+            fileScanner.close();
+            return new Character(dName, dHp, dAp, dSp);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("\n[エラー] " + filePath + " が見つかりません。");
+            return null;
+        } catch (Exception e) {
+            System.out.println("\n[エラー] データの読み込みに失敗しました。");
+            return null;
         }
     }
-		
-	// 攻撃の実行
-	private static void executeAttack(Player first, Player second, BattleLogger logger) {
-		// TODO 自動生成されたメソッド・スタブ
-		second.hp -= first.at;
-        logger.log(String.format("%s の攻撃！ %s に %d ダメージ (残りHP: %d)", 
-        		first.name, second.name, first.at, Math.max(0, second.hp)));
-	}
+    
+    // 攻撃処理の共通メソッド
+    public static void attack(Character attacker, Character defender, PrintWriter pw) {
+        defender.hp -= attacker.ap;
+        String log = attacker.name + " の攻撃！ " + defender.name + " に " + attacker.ap + " のダメージ！" + "\n【" + defender.name +"残りHP: " + Math.max(0, defender.hp)  + "】";
+        
+        System.out.println(log);
+        pw.println(log); // バトルログをtxtに1行ずつ記録
 
-	
-
-	// Daemonの読み込み（受付窓口）
-    private static Player loadDaemon(String file) {
-    	try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-    		String name = br.readLine();
-    		int hp =Integer.parseInt(br.readLine());
-    		int ap =Integer.parseInt(br.readLine());
-    		int sp =Integer.parseInt(br.readLine());
-    		return new Player(name,hp,ap,sp);
-    	} catch (Exception e) {
-    		return null;
-    	}
-		
-	
     }
-
-
+    
+    
+    
 }
-
