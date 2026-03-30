@@ -53,19 +53,19 @@ public class Question7 {
         
 // 2 ------------------------------------------------------------------------
          //★loadDaemon メソッドを呼び出して敵を生成
-        Character enemy = loadDaemon("daemon_status.txt");
+        Character daemon = loadDaemon("daemon_status.txt");
         
      // ファイルが読み込めなかった（nullが返った）場合は終了
-        if (enemy == null) {
+        if (daemon == null) {
             s.close();
             return;
         }
         
             System.out.println("DAEMONSTATUS");
-            System.out.println("\n名前: " + enemy.name);
-            System.out.println("HP  : " + enemy.hp);
-            System.out.println("AP  : " + enemy.ap);
-            System.out.println("SP  : " + enemy.sp);
+            System.out.println("\n名前: " + daemon.name);
+            System.out.println("HP  : " + daemon.hp);
+            System.out.println("AP  : " + daemon.ap);
+            System.out.println("SP  : " + daemon.sp);
             System.out.println("\n--------------------------");
 
 
@@ -76,26 +76,26 @@ public class Question7 {
         
         try (PrintWriter pw = new PrintWriter(new FileWriter("battle_log.txt"))) { //バトルの結果をテキストファイルに出力
             pw.println("--- バトルログ ---");
-            pw.println(player.name + "HP:" + player.hp + "VS" + enemy.name + "HP:" + enemy.hp );
+            pw.println(player.name + "HP:" + player.hp + "VS" + daemon.name + "HP:" + daemon.hp );
             
         //先攻決定
         Character first,second;
         
-		if (player.sp > enemy.sp) { //player
+		if (player.sp > daemon.sp) { //player
 			
-			first = player; second = enemy;
+			first = player; second = daemon;
 			
-        } else if (enemy.sp > player.sp) { //daemon
+        } else if (daemon.sp > player.sp) { //daemon
         	
-        	first = enemy; second = player;
+        	first = daemon; second = player;
         	
         } else {
         	
         	if (ran.nextBoolean()) { //player=daemon
         		first = player;
-        		second = enemy;
+        		second = daemon;
         	}else {
-        		first = enemy; second = player;
+        		first = daemon; second = player;
         	}
         	
         }
@@ -104,7 +104,7 @@ public class Question7 {
         
         
         // ターン制バトルを行い
-        while (player.hp > 0 && enemy.hp > 0) {
+        while (player.hp > 0 && daemon.hp > 0) {
             // 先攻の攻撃
             attack(first, second, pw);
             if (second.hp <= 0) break;
@@ -114,7 +114,7 @@ public class Question7 {
         }
 
         // 決着
-        String winner = (player.hp > 0) ? player.name : enemy.name; //どちらかのHPが0以下になるまで続ける
+        String winner = (player.hp > 0) ? player.name : daemon.name; //どちらかのHPが0以下になるまで続ける
         String result = "\n勝者: " + winner ;
         System.out.println(result);
         
